@@ -1,4 +1,4 @@
-package br.com.chipnews.Chipnews;
+package br.com.chipnews;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
