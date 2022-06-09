@@ -1,28 +1,33 @@
 package br.com.chipnews.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-public class Address implements Serializable {
+public class Branch implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String address;
-    private String district;
-    private String zipcode;
+    private String socialReason;
+    private String fantasyName;
+    private String stateRegistration;
+    private String municipalRegistration;
+    private String email;
+
+    @OneToMany
+    private List<Services> services;
 
     @OneToOne
-    private City city;
+    private User user;
 
     @ManyToOne
     private Client client;

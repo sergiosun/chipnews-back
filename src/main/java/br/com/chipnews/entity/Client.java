@@ -4,12 +4,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Getter @Setter @NoArgsConstructor
 @Entity
@@ -18,7 +16,7 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
+    private String name;
     private String email;
     private String cpfCnpj;
     private String rg;
@@ -26,5 +24,19 @@ public class Client implements Serializable {
     private String nationality;
     private String phone;
     private String cellphone;
-    private Date paymentDate;
+
+    @OneToOne
+    private User user;
+
+    @OneToMany
+    private List<Address> address;
+
+    @OneToMany
+    private List<Services> services;
+
+    @OneToMany
+    private List<Branch> branch;
+
+    @OneToMany
+    private List<Signature> signature;
 }

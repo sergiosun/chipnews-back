@@ -20,20 +20,9 @@ public class ClientService {
     }
 
     public Client save(Client client) {
-        throw
 
-        if(){
-            return repository.save(client);
-        }else{
-            return repository.save(client);
-        }
-
+        return repository.save(client);
     }
 
-/*    public DoubleStream findById(long id) {
-        return findById(id);
-    }*/
 
-/*    public void deleteById(long id) {
-    }*/
 }

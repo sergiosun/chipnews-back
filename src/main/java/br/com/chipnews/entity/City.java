@@ -2,15 +2,13 @@ package br.com.chipnews.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
-@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -21,4 +19,8 @@ public class City implements Serializable {
     private Long id;
     private String city;
 
+    @ManyToOne
+    private State state;
+    @OneToOne
+    private Address address;
 }

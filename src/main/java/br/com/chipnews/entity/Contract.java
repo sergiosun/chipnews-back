@@ -1,6 +1,5 @@
 package br.com.chipnews.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,18 +11,14 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity
-public class Address implements Serializable {
+public class Contract implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String address;
-    private String district;
-    private String zipcode;
-
-    @OneToOne
-    private City city;
+    private Long idSignature;
+    private String description;
 
     @ManyToOne
-    private Client client;
+    private Signature signature;
 }

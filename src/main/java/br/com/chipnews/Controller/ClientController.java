@@ -2,7 +2,6 @@ package br.com.chipnews.Controller;
 
 import br.com.chipnews.entity.Client;
 import br.com.chipnews.service.ClientService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
