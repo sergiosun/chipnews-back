@@ -19,6 +19,7 @@ public class Contract implements Serializable {
     private Long idSignature;
     private String description;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "signature_id", referencedColumnName = "id", nullable = true)
     private Signature signature;
 }

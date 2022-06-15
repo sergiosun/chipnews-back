@@ -22,6 +22,6 @@ public class State implements Serializable {
     private String state;
     private String initials;
 
-    @OneToMany
+    @OneToMany(mappedBy = "state", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH})
     private List<City> city;
 }

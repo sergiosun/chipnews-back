@@ -20,9 +20,11 @@ public class User implements Serializable {
     private String password;
     private String role;
 
-    @OneToOne
+    @OneToOne(cascade = { CascadeType.DETACH})
+    @JoinColumn(name = "client_id")
     private Client client;
-    @OneToOne
+    @OneToOne(cascade = { CascadeType.DETACH})
+    @JoinColumn(name = "branch_id")
     private Branch branch;
 
 }

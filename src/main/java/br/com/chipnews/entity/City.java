@@ -19,8 +19,10 @@ public class City implements Serializable {
     private Long id;
     private String city;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "state_id", referencedColumnName = "id", nullable = true)
     private State state;
-    @OneToOne
+    @OneToOne(cascade = { CascadeType.DETACH})
+    @JoinColumn(name = "address_id")
     private Address address;
 }

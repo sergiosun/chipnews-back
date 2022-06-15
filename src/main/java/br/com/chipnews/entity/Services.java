@@ -21,12 +21,14 @@ public class Services implements Serializable {
     private String description;
     private Double value;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "branch_id", referencedColumnName = "id", nullable = true)
     private Branch branch;
 
-    @OneToMany
+    @OneToMany(mappedBy = "services", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH})
     private List<Signature> signature;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = true)
     private Client client;
 }

@@ -26,18 +26,19 @@ public class Client implements Serializable {
     private String phone;
     private String cellphone;
 
-    @OneToOne
+    @OneToOne(cascade = { CascadeType.DETACH})
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH})
     private List<Address> address;
 
-    @OneToMany
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH})
     private List<Services> services;
 
-    @OneToMany
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH})
     private List<Branch> branch;
 
-    @OneToMany
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH})
     private List<Signature> signature;
 }

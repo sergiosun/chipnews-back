@@ -23,12 +23,14 @@ public class Branch implements Serializable {
     private String municipalRegistration;
     private String email;
 
-    @OneToMany
+    @OneToMany(mappedBy = "branch", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH})
     private List<Services> services;
 
-    @OneToOne
+    @OneToOne(cascade = { CascadeType.DETACH})
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = true)
     private Client client;
 }

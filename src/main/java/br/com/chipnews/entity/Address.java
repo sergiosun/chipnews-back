@@ -21,9 +21,11 @@ public class Address implements Serializable {
     private String district;
     private String zipcode;
 
-    @OneToOne
+    @OneToOne(cascade = { CascadeType.DETACH})
+    @JoinColumn(name = "city_id")
     private City city;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = true)
     private Client client;
 }

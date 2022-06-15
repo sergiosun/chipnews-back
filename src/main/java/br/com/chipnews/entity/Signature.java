@@ -25,12 +25,14 @@ public class Signature implements Serializable {
     private String numAddress;
     private Date paymentDate;
 
-    @OneToMany
+    @OneToMany(mappedBy = "signature", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH})
     private List<Contract> contract;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "services_id", referencedColumnName = "id", nullable = true)
     private Services services;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = true)
     private Client client;
 }
