@@ -1,11 +1,12 @@
 package br.com.chipnews.Controller;
 
+import br.com.chipnews.dto.UserDTO;
 import br.com.chipnews.entity.User;
 import br.com.chipnews.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping({"/users"})
+@RequestMapping(value = "/users")
 public class UserController {
 
     UserService service;
@@ -22,5 +23,10 @@ public class UserController {
     @PostMapping
     public User create(@RequestBody User user){
         return service.save(user);
+    }
+
+    @GetMapping(value = {"/id"})
+    public UserDTO findById(@PathVariable Long id) {
+        return service.findById(id);
     }
 }
