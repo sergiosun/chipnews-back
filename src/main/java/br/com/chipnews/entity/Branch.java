@@ -1,16 +1,13 @@
 package br.com.chipnews.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@NoArgsConstructor
-@Getter
-@Setter
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Data
 @Entity
 public class Branch implements Serializable {
 
@@ -26,8 +23,12 @@ public class Branch implements Serializable {
     @OneToMany(mappedBy = "branch", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH})
     private List<Services> services;
 
-    @OneToOne(cascade = { CascadeType.DETACH})
-    @JoinColumn(name = "user_id")
+    @OneToOne(cascade = { CascadeType.ALL})
+    @JoinTable(name="user",
+            joinColumns={@JoinColumn(name="branch_id",
+                    referencedColumnName="id")},
+            inverseJoinColumns={@JoinColumn(name="user_id",
+                    referencedColumnName="id")})
     private User user;
 
     @ManyToOne(optional = true)

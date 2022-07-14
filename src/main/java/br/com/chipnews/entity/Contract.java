@@ -1,15 +1,12 @@
 package br.com.chipnews.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-@NoArgsConstructor
-@Getter
-@Setter
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Data
 @Entity
 public class Contract implements Serializable {
 

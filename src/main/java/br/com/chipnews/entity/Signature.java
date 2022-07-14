@@ -1,17 +1,14 @@
 package br.com.chipnews.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-@NoArgsConstructor
-@Getter
-@Setter
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Data
 @Entity
 public class Signature implements Serializable {
 

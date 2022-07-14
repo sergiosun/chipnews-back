@@ -1,8 +1,6 @@
 package br.com.chipnews.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-@NoArgsConstructor
-@Getter
-@Setter
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Data
 @Entity
 public class Document implements Serializable {
 
