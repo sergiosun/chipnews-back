@@ -1,6 +1,9 @@
 package br.com.chipnews.service;
 
+import br.com.chipnews.dto.BranchDTO;
+import br.com.chipnews.dto.UserDTO;
 import br.com.chipnews.entity.Branch;
+import br.com.chipnews.entity.User;
 import br.com.chipnews.repository.BranchRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +24,10 @@ public class BranchService {
     public Branch save(Branch branch) {
 
         return repository.save(branch);
+    }
+    public BranchDTO findById(Long id) {
+        Branch entity = repository.findById(id).get();
+        BranchDTO dto = new BranchDTO(entity);
+        return dto;
     }
 }

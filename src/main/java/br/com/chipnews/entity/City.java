@@ -12,7 +12,7 @@ public class City implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String city;
+    private String urban;
 
     @ManyToOne(optional = true)
     @JoinColumn(name = "state_id", referencedColumnName = "id", nullable = true)

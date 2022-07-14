@@ -1,5 +1,8 @@
 package br.com.chipnews.service;
 
+import br.com.chipnews.dto.ContractDTO;
+import br.com.chipnews.dto.DocumentDTO;
+import br.com.chipnews.entity.Contract;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,4 +23,9 @@ public class DocumentsService {
 
         return repository.save(documents);
     }*/
+/*public DocumentDTO findById(Long id) {
+    Document entity = repository.findById(id).get();
+    DocumentDTO dto = new DocumentDTO(entity);
+    return dto;
+}*/
 }

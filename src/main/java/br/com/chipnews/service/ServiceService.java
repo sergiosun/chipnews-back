@@ -1,5 +1,8 @@
 package br.com.chipnews.service;
 
+import br.com.chipnews.dto.ContractDTO;
+import br.com.chipnews.dto.ServicesDTO;
+import br.com.chipnews.entity.Contract;
 import br.com.chipnews.entity.Services;
 import br.com.chipnews.repository.DocumentsRepository;
 import br.com.chipnews.repository.ServiceRepository;
@@ -23,5 +26,11 @@ public class ServiceService {
 
         return repository.save(services);
 
+    }
+
+    public ServicesDTO findById(Long id) {
+        Services entity = repository.findById(id).get();
+        ServicesDTO dto = new ServicesDTO(entity);
+        return dto;
     }
 }

@@ -1,5 +1,8 @@
 package br.com.chipnews.service;
 
+import br.com.chipnews.dto.ContractDTO;
+import br.com.chipnews.dto.StateDTO;
+import br.com.chipnews.entity.Contract;
 import br.com.chipnews.entity.State;
 import br.com.chipnews.repository.StateRepository;
 import org.springframework.stereotype.Service;
@@ -11,7 +14,7 @@ public class StateService {
 
     StateRepository repository;
 
-    StateService(StateRepository stateRepository){
+    StateService(StateRepository stateRepository) {
         this.repository = stateRepository;
     }
 
@@ -25,11 +28,16 @@ public class StateService {
         return repository.save(state);
     }
 
- /*   public DoubleStream findById(long id) {
-        return null;
+    /*   public DoubleStream findById(long id) {
+           return null;
+       }
+
+       public void deleteById(long id) {
+
+       }*/
+    public StateDTO findById(Long id) {
+        State entity = repository.findById(id).get();
+        StateDTO dto = new StateDTO(entity);
+        return dto;
     }
-
-    public void deleteById(long id) {
-
-    }*/
 }
