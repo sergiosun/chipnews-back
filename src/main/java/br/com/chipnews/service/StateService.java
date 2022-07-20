@@ -1,13 +1,9 @@
 package br.com.chipnews.service;
 
-import br.com.chipnews.dto.ContractDTO;
 import br.com.chipnews.dto.StateDTO;
-import br.com.chipnews.entity.Contract;
-import br.com.chipnews.entity.State;
+import br.com.chipnews.entity.StateEntity;
 import br.com.chipnews.repository.StateRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.stream.DoubleStream;
 
 @Service
 public class StateService {
@@ -19,11 +15,11 @@ public class StateService {
     }
 
 
-    public Iterable<State> findAll() {
+    public Iterable<StateEntity> findAll() {
         return repository.findAll();
     }
 
-    public State save(State state) {
+    public StateEntity save(StateEntity state) {
 
         return repository.save(state);
     }
@@ -36,7 +32,7 @@ public class StateService {
 
        }*/
     public StateDTO findById(Long id) {
-        State entity = repository.findById(id).get();
+        StateEntity entity = repository.findById(id).get();
         StateDTO dto = new StateDTO(entity);
         return dto;
     }

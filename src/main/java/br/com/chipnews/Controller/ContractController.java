@@ -1,6 +1,7 @@
 package br.com.chipnews.Controller;
 
-import br.com.chipnews.entity.Contract;
+import br.com.chipnews.dto.ContractDTO;
+import br.com.chipnews.entity.ContractEntity;
 import br.com.chipnews.service.ContractService;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,12 +16,16 @@ public class ContractController {
     }
 
     @GetMapping
-    public Iterable<Contract> findAll(){
+    public Iterable<ContractEntity> findAll(){
         return service.findAll();
     }
 
     @PostMapping
-    public Contract create(@RequestBody Contract contract){
+    public ContractEntity create(@RequestBody ContractEntity contract){
         return service.save(contract);
+    }
+    @GetMapping(value = {"/id"})
+    public ContractDTO findById(@PathVariable Long id) {
+        return service.findById(id);
     }
 }

@@ -1,29 +1,28 @@
 package br.com.chipnews.dto;
 
-import br.com.chipnews.entity.User;
+import br.com.chipnews.entity.UserEntity;
 import lombok.*;
+
+import java.util.UUID;
 
 @Getter
 @Setter
 public class UserDTO {
 
-    private Long id;
+    private UUID id;
     private String username;
-    private String role;
 
     public UserDTO() {
 
     }
 
-    public UserDTO(Long id, String login) {
+    public UserDTO(UUID id, String login) {
         this.id = id;
         this.username = username;
-        this.role = role;
     }
 
-    public UserDTO(User user) {
-        id = user.getId();
+    public UserDTO(UserEntity user) {
+        id = user.getUserId();
         username = user.getUsername();
-        role = user.getRole();
     }
 }

@@ -1,28 +1,30 @@
 package br.com.chipnews.dto;
 
-import br.com.chipnews.entity.State;
+import br.com.chipnews.entity.StateEntity;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.UUID;
 
 @Getter
 @Setter
 public class StateDTO {
 
-    private Long id;
+    private UUID stateId;
     private String states;
     private String initials;
 
     public StateDTO(){
     }
 
-    public StateDTO(Long id, String states, String initials) {
-        this.id = id;
+    public StateDTO(UUID stateId, String states, String initials) {
+        this.stateId = stateId;
         this.states = states;
         this.initials = initials;
     }
-    public StateDTO(State state){
+    public StateDTO(StateEntity state){
 
-        id = state.getId();
+        stateId = state.getStateId();
         states = state.getStates();
         initials = state.getInitials();
     }

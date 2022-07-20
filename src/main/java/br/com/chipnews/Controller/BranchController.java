@@ -1,6 +1,7 @@
 package br.com.chipnews.Controller;
 
-import br.com.chipnews.entity.Branch;
+import br.com.chipnews.dto.BranchDTO;
+import br.com.chipnews.entity.BranchEntity;
 import br.com.chipnews.service.BranchService;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,13 +16,18 @@ public class BranchController {
     }
 
     @GetMapping
-    public Iterable<Branch> findAll(){
+    public Iterable<BranchEntity> findAll(){
         return service.findAll();
     }
 
     @PostMapping
-    public Branch create(@RequestBody Branch branch){
+    public BranchEntity create(@RequestBody BranchEntity branch) {
         return service.save(branch);
+    }
+
+        @GetMapping(value = {"/id"})
+        public BranchDTO findById(@PathVariable Long id) {
+            return service.findById(id);
     }
 }
 

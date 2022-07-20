@@ -1,14 +1,16 @@
 package br.com.chipnews.dto;
 
-import br.com.chipnews.entity.Branch;
+import br.com.chipnews.entity.BranchEntity;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.UUID;
 
 @Getter
 @Setter
 public class BranchDTO {
 
-    private Long id;
+    private UUID branchId;
     private String socialReason;
     private String fantasyName;
     private String stateRegistration;
@@ -16,19 +18,18 @@ public class BranchDTO {
     private String email;
 
     public BranchDTO() {
-
     }
 
-    public BranchDTO(Long id, String socialReason, String fantasyName, String stateRegistration, String municipalRegistration, String email) {
-        this.id = id;
+    public BranchDTO(UUID branchId, String socialReason, String fantasyName, String stateRegistration, String municipalRegistration, String email) {
+        this.branchId = branchId;
         this.socialReason = socialReason;
         this.fantasyName = fantasyName;
         this.stateRegistration = stateRegistration;
         this.municipalRegistration = municipalRegistration;
         this.email = email;
     }
-    public BranchDTO(Branch branch){
-        id = branch.getId();
+    public BranchDTO(BranchEntity branch){
+        branchId = branch.getBranchId();
         socialReason = branch.getSocialReason();
         fantasyName = branch.getFantasyName();
         stateRegistration = branch.getStateRegistration();

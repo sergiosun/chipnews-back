@@ -1,9 +1,11 @@
 package br.com.chipnews.Controller;
 
 import br.com.chipnews.dto.UserDTO;
-import br.com.chipnews.entity.User;
+import br.com.chipnews.entity.UserEntity;
 import br.com.chipnews.service.UserService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/users")
@@ -16,17 +18,17 @@ public class UserController {
     }
 
     @GetMapping
-    public Iterable<User> findAll(){
+    public Iterable<UserEntity> findAll(){
         return service.findAll();
     }
 
     @PostMapping
-    public User create(@RequestBody User user){
+    public UserEntity create(@RequestBody UserEntity user){
         return service.save(user);
     }
 
-    @GetMapping(value = {"/id"})
-    public UserDTO findById(@PathVariable Long id) {
-        return service.findById(id);
+    @GetMapping(value = {"/userId"})
+    public UserDTO findById(@PathVariable UUID userId) {
+        return service.findById(userId);
     }
 }

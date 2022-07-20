@@ -1,29 +1,31 @@
 package br.com.chipnews.dto;
 
-import br.com.chipnews.entity.Contract;
+import br.com.chipnews.entity.ContractEntity;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.UUID;
 
 @Getter
 @Setter
 public class ContractDTO {
 
-    private Long id;
-    private Long idSignature;
+    private UUID contractId;
+    private UUID signatureId;
     private String description;
 
     public ContractDTO(){
     }
 
-    public ContractDTO(Long id, Long idSignature, String description) {
-        this.id = id;
-        this.idSignature = idSignature;
+    public ContractDTO(UUID contractId, UUID signatureId, String description) {
+        this.contractId = contractId;
+        this.signatureId = signatureId;
         this.description = description;
     }
 
-    public ContractDTO(Contract contract){
-        id = contract.getId();
-        idSignature = contract.getIdSignature();
+    public ContractDTO(ContractEntity contract){
+        contractId = contract.getContractId();
+        signatureId = contract.getContractId();
         description = contract.getDescription();
     }
 }

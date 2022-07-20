@@ -1,15 +1,16 @@
 package br.com.chipnews.dto;
 
-import br.com.chipnews.entity.Client;
+import br.com.chipnews.entity.ClientEntity;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
+import java.util.UUID;
 
 @Getter
 @Setter
 public class ClientDTO {
 
-    private Long id;
+    private UUID clientId;
     private String name;
     private String email;
     private String cpfCnpj;
@@ -22,8 +23,8 @@ public class ClientDTO {
     public ClientDTO() {
     }
 
-    public ClientDTO(Long id, String name, String email, String cpfCnpj, String rg, Date dateBirth, String nationality, String phone, String cellphone) {
-        this.id = id;
+    public ClientDTO(UUID clientId, String name, String email, String cpfCnpj, String rg, Date dateBirth, String nationality, String phone, String cellphone) {
+        this.clientId = clientId;
         this.name = name;
         this.email = email;
         this.cpfCnpj = cpfCnpj;
@@ -33,8 +34,8 @@ public class ClientDTO {
         this.phone = phone;
         this.cellphone = cellphone;
     }
-    public ClientDTO(Client client){
-        id = client.getId();
+    public ClientDTO(ClientEntity client){
+        clientId = client.getClientId();
         name = client.getName();
         email = client.getEmail();
         cpfCnpj = client.getCpfCnpj();

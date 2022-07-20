@@ -1,40 +1,40 @@
 package br.com.chipnews.dto;
 
-import br.com.chipnews.entity.Document;
+import br.com.chipnews.entity.DocumentEntity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.print.Doc;
+import java.util.UUID;
 
 @Getter
 @Setter
 public class DocumentDTO {
 
-    private Long id;
+    private UUID documentId;
     private String compAddress;
     private String rgCpfFront;
     private String rgCpfBack;
     private String photoClient;
-    private Long idSignature;
+    private UUID signatureId;
 
     public DocumentDTO(){
     }
 
-    public DocumentDTO(Long id, String compAddress, String rgCpfFront, String rgCpfBack, String photoClient, Long idSignature) {
-        this.id = id;
+    public DocumentDTO(UUID documentId, String compAddress, String rgCpfFront, String rgCpfBack, String photoClient, UUID signatureId) {
+        this.documentId = documentId;
         this.compAddress = compAddress;
         this.rgCpfFront = rgCpfFront;
         this.rgCpfBack = rgCpfBack;
         this.photoClient = photoClient;
-        this.idSignature = idSignature;
+        this.signatureId = signatureId;
     }
-    public DocumentDTO(Document document){
+    public DocumentDTO(DocumentEntity document){
 
-        id = document.getId();
+        documentId = document.getDocumentId();
         compAddress = document.getCompAddress();
         rgCpfFront = document.getRgCpfFront();
         rgCpfBack = document.getRgCpfBack();
         photoClient = document.getPhotoClient();
-        idSignature = document.getIdSignature();
+        signatureId = document.getSignatureId();
     }
 }

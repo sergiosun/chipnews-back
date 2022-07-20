@@ -1,10 +1,7 @@
 package br.com.chipnews.service;
 
-import br.com.chipnews.dto.ContractDTO;
-import br.com.chipnews.dto.ServicesDTO;
-import br.com.chipnews.entity.Contract;
-import br.com.chipnews.entity.Services;
-import br.com.chipnews.repository.DocumentsRepository;
+import br.com.chipnews.dto.ServiceDTO;
+import br.com.chipnews.entity.ServiceEntity;
 import br.com.chipnews.repository.ServiceRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,19 +15,19 @@ public class ServiceService {
     }
 
 
-    public Iterable<Services> findAll() {
+    public Iterable<ServiceEntity> findAll() {
         return repository.findAll();
     }
 
-    public Services save(Services services) {
+    public ServiceEntity save(ServiceEntity services) {
 
         return repository.save(services);
 
     }
 
-    public ServicesDTO findById(Long id) {
-        Services entity = repository.findById(id).get();
-        ServicesDTO dto = new ServicesDTO(entity);
+    public ServiceDTO findById(Long id) {
+        ServiceEntity entity = repository.findById(id).get();
+        ServiceDTO dto = new ServiceDTO(entity);
         return dto;
     }
 }

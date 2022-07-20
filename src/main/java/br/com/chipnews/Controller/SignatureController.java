@@ -1,8 +1,6 @@
 package br.com.chipnews.Controller;
 
-import br.com.chipnews.entity.Services;
-import br.com.chipnews.entity.Signature;
-import br.com.chipnews.service.ServiceService;
+import br.com.chipnews.entity.SignatureEntity;
 import br.com.chipnews.service.SignatureService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,12 +15,12 @@ public class SignatureController {
     }
 
     @GetMapping
-    public Iterable<Signature> findAll(){
+    public Iterable<SignatureEntity> findAll(){
         return service.findAll();
     }
 
     @PostMapping
-    public Signature create(@RequestBody Signature signature){
+    public SignatureEntity create(@RequestBody SignatureEntity signature){
         return service.save(signature);
     }
 

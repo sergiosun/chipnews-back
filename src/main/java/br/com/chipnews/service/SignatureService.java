@@ -1,11 +1,7 @@
 package br.com.chipnews.service;
 
-import br.com.chipnews.dto.ContractDTO;
 import br.com.chipnews.dto.SignatureDTO;
-import br.com.chipnews.entity.Contract;
-import br.com.chipnews.entity.Services;
-import br.com.chipnews.entity.Signature;
-import br.com.chipnews.repository.ServiceRepository;
+import br.com.chipnews.entity.SignatureEntity;
 import br.com.chipnews.repository.SignatureRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,17 +15,17 @@ public class SignatureService {
     }
 
 
-    public Iterable<Signature> findAll() {
+    public Iterable<SignatureEntity> findAll() {
         return repository.findAll();
     }
 
-    public Signature save(Signature signature) {
+    public SignatureEntity save(SignatureEntity signature) {
 
         return repository.save(signature);
 
     }
         public SignatureDTO findById (Long id){
-            Signature entity = repository.findById(id).get();
+            SignatureEntity entity = repository.findById(id).get();
             SignatureDTO dto = new SignatureDTO(entity);
             return dto;
     }

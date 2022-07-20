@@ -1,6 +1,7 @@
 package br.com.chipnews.Controller;
 
-import br.com.chipnews.entity.Address;
+import br.com.chipnews.dto.AddressDTO;
+import br.com.chipnews.entity.AddressEntity;
 import br.com.chipnews.service.AddressService;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,12 +16,16 @@ public class AddressController {
     }
 
     @GetMapping
-    public Iterable<Address> findAll(){
+    public Iterable<AddressEntity> findAll(){
         return service.findAll();
     }
 
     @PostMapping
-    public Address create(@RequestBody Address address){
+    public AddressEntity create(@RequestBody AddressEntity address){
         return service.save(address);
+    }
+    @GetMapping(value = {"/id"})
+    public AddressDTO findById(@PathVariable Long id) {
+        return service.findById(id);
     }
 }

@@ -1,8 +1,5 @@
 package br.com.chipnews.service;
 
-import br.com.chipnews.dto.ContractDTO;
-import br.com.chipnews.dto.DocumentDTO;
-import br.com.chipnews.entity.Contract;
 import org.springframework.stereotype.Service;
 
 @Service

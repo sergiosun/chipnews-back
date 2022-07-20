@@ -1,6 +1,6 @@
 package br.com.chipnews.Controller;
 
-import br.com.chipnews.entity.Services;
+import br.com.chipnews.entity.ServiceEntity;
 import br.com.chipnews.service.ServiceService;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,12 +15,12 @@ public class ServiceController {
     }
 
     @GetMapping
-    public Iterable<Services> findAll(){
+    public Iterable<ServiceEntity> findAll(){
         return service.findAll();
     }
 
     @PostMapping
-    public Services create(@RequestBody Services services){
+    public ServiceEntity create(@RequestBody ServiceEntity services){
         return service.save(services);
     }
 

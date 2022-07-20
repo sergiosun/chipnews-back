@@ -1,8 +1,7 @@
 package br.com.chipnews.Controller;
 
-import br.com.chipnews.entity.State;
+import br.com.chipnews.entity.StateEntity;
 import br.com.chipnews.service.StateService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,12 +15,12 @@ public class StateController {
     }
 
     @GetMapping
-    public Iterable<State> findAll(){
+    public Iterable<StateEntity> findAll(){
         return service.findAll();
     }
 
     @PostMapping
-    public State create(@RequestBody State state){
+    public StateEntity create(@RequestBody StateEntity state){
         return service.save(state);
     }
 
