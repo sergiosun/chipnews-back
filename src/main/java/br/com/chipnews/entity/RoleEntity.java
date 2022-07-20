@@ -21,7 +21,7 @@ public class RoleEntity implements GrantedAuthority, Serializable {
     private UUID roleId;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true)
-    private RoleName roleName;
+    private String roleName;
 
     @ManyToMany
     @JoinTable(name = "TB_USERS_ROLES",

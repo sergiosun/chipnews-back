@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping({"/clients"})
 public class ClientController {
 
@@ -21,7 +22,7 @@ public class ClientController {
     }
 
     //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+  //  @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping
     public Iterable<ClientEntity> findAll(){
         return service.findAll();
