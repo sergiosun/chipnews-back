@@ -2,9 +2,11 @@ package br.com.chipnews.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -19,10 +21,11 @@ public class WebSecurityConfigV2 {
                 .httpBasic()
                 .and()
                 .authorizeHttpRequests()
-                //.antMatchers(HttpMethod.GET, "/clients/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/clients/**").permitAll()
                 //.antMatchers(HttpMethod.POST, "/clients").hasRole("USER")
                 //.antMatchers(HttpMethod.DELETE, "/clients/**").hasRole("ADMIN")
                 //.antMatchers(HttpMethod.DELETE, "/clients/**").hasAnyRole("USER", "ADMIN")
+                //.antMatchers("/swagger-ui/*", "*.html").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable();
@@ -34,5 +37,12 @@ public class WebSecurityConfigV2 {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+/*  HABILITAR SWAGGER
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/**");
+    }
+*/
 
 }

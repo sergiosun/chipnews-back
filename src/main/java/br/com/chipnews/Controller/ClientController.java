@@ -26,6 +26,7 @@ public class ClientController {
     public Iterable<ClientEntity> findAll(){
         return service.findAll();
     }
+
     @RequestMapping(value = "clients/{id}", method = RequestMethod.GET)
     public ResponseEntity<ClientDTO> GetById(@PathVariable(value = "id") long id)
     {
