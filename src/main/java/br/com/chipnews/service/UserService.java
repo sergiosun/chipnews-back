@@ -17,9 +17,10 @@ public class UserService {
     }
 
 
-    public Iterable<UserEntity> findAll() {
+    public Iterable<UserDTO> findAll() {
         return repository.findAll();
     }
+
 
     public UserEntity save(UserEntity user) {
 
