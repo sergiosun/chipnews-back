@@ -22,12 +22,12 @@ public class WebSecurityConfigV2 {
                 .and()
                 .authorizeHttpRequests()
                 .antMatchers(HttpMethod.GET, "/clients/**").permitAll()
-<<<<<<< HEAD
+
                 //.antMatchers(HttpMethod.POST, "/clients").hasRole("USER")
                 //.antMatchers(HttpMethod.DELETE, "/clients/**").hasRole("ADMIN")
                 //.antMatchers(HttpMethod.DELETE, "/clients/**").hasAnyRole("USER", "ADMIN")
                 //.antMatchers("/swagger-ui/*", "*.html").hasRole("ADMIN")
-=======
+
                 .antMatchers(HttpMethod.GET, "/clients/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST, "/clients").hasRole("USER")
                 .antMatchers(HttpMethod.PUT, "/clients/**").hasRole("ADMIN")
@@ -82,7 +82,7 @@ public class WebSecurityConfigV2 {
                 .antMatchers(HttpMethod.PUT, "/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/users/**").hasAnyRole("USER", "ADMIN")
->>>>>>> 98376fb0e8eaaae33620fa612b06644f22cf905b
+
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable();

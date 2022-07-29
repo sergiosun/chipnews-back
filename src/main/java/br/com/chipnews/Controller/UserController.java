@@ -17,7 +17,7 @@ public class UserController {
         this.service = service;
     }
 
-    @GetMapping
+/*    @GetMapping
     public Iterable<UserEntity> findAll(){
         return service.findAll();
     }
@@ -30,5 +30,5 @@ public class UserController {
     @GetMapping(value = {"/userId"})
     public UserDTO findById(@PathVariable UUID userId) {
         return service.findById(userId);
-    }
+    }*/
 }
