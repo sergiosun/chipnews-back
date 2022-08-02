@@ -9,12 +9,9 @@ import java.util.UUID;
 @Getter
 @Setter
 public class UserDTO {
-
     private UUID id;
     @NotNull
     private String username;
     @NotNull
     private String roleName;
-
-
 }

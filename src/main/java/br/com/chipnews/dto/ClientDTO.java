@@ -29,7 +29,6 @@ public class ClientDTO {
     private String phone;
     @NotBlank
     private String cellphone;
-
     public ClientDTO() {
     }
 

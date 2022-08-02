@@ -68,8 +68,6 @@ public class UserEntity implements UserDetails, Serializable {
 
 //   @ManyToMany (fetch = FetchType.EAGER)
 
-    //private String role;
-
 //    @OneToOne(cascade = { CascadeType.DETACH})
 //    @JoinColumn(name = "client_id")
 //    private Client client;

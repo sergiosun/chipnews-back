@@ -33,4 +33,5 @@ public class RoleEntity implements GrantedAuthority, Serializable {
     public String getAuthority() {
         return this.roleName.toString();
     }
+
 }

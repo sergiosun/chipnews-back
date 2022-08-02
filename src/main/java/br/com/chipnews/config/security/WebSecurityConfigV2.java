@@ -86,7 +86,6 @@ public class WebSecurityConfigV2 {
                 .antMatchers(HttpMethod.DELETE, "/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/users/**").hasAnyRole("USER", "ADMIN")
 */
-
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable();

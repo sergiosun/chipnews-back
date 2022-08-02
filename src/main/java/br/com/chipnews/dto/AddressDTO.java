@@ -18,7 +18,6 @@ public class AddressDTO {
     private String district;
     @NotBlank
     private String zipcode;
-
     public AddressDTO() {
     }
 

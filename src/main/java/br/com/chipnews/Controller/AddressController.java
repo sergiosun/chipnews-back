@@ -28,7 +28,6 @@ public class AddressController {
 
     @PostMapping
     public ResponseEntity<Object> saveAddress(@RequestBody @Valid AddressDTO addressDTO){
-
         if(AddressService.existsByZipCode(addressDTO.getZipcode())){
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Já existe este CEP");
         }
@@ -36,6 +35,7 @@ public class AddressController {
         BeanUtils.copyProperties(addressDTO, addressEntity);
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(addressEntity));
     }
+
 
     @GetMapping(value = {"/id"})
     public AddressDTO findById(@PathVariable UUID addressId) {
