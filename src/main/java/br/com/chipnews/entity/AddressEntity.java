@@ -17,7 +17,8 @@ public class AddressEntity implements Serializable {
     private UUID addressId;
     private String residence;
     private String district;
-    private String zipcode;
+    private String complement;
+    private Integer number;
 
     @OneToOne
     @JoinColumn(name = "city_id")

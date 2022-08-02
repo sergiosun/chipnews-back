@@ -13,22 +13,26 @@ import java.util.UUID;
 public class AddressDTO {
     private UUID addressId;
     @NotBlank
-    private String residence;
+    private String residence; //Endereço
     @NotBlank
-    private String district;
+    private String district; //Bairro
     @NotBlank
-    private String zipcode;
+    private String complement; // Complemento
+    @NotBlank
+    private Integer number; // Número da residencia
     public AddressDTO() {
     }
 
-    public AddressDTO(String address, String district, String zipcode) {
+    public AddressDTO(String address, String district, String complement, Integer number) {
         this.residence = address;
         this.district = district;
-        this.zipcode = zipcode;
+        this.complement = complement;
+        this.number = number;
     }
     public AddressDTO(AddressEntity address){
         residence = address.getResidence();
         district = address.getDistrict();
-        zipcode = address.getZipcode();
+        complement = address.getComplement();
+        number = address.getNumber();
     }
 }

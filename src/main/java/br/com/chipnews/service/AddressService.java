@@ -6,6 +6,7 @@ import br.com.chipnews.repository.AddressRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -16,7 +17,6 @@ public class AddressService {
         this.repository = addressRepository;
     }
 
-
     public Iterable<AddressEntity> findAll() {
         return repository.findAll();
     }
@@ -26,9 +26,24 @@ public class AddressService {
             return repository.save(address);
     }
 
-    public AddressDTO findById(UUID addressId) {
-        AddressEntity entity = repository.findById(addressId).get();
-        AddressDTO dto = new AddressDTO(entity);
-        return dto;
+    public static boolean existsByResidence(String residence) {
+        return AddressRepository.existsByResidence(residence);
+    }
+    public static boolean existsByDistrict(String district) {
+        return AddressRepository.existsByDistrict(district);
+    }
+    public static boolean existsByComplement(String complement) {
+        return AddressRepository.existsByComplement(complement);
+    }
+    public static boolean existsByNumber(Integer number) {
+        return AddressRepository.existsByNumber(number);
+    }
+
+    public static Optional<AddressEntity> findById(UUID addressId) {
+        return AddressRepository.findById(addressId);
+    }
+    @Transactional
+    public void delete(AddressEntity addressEntity){
+        AddressRepository.delete(addressEntity);
     }
 }
