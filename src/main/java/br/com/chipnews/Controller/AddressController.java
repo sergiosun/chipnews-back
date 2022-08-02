@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -27,13 +28,17 @@ public class AddressController {
 
     @PostMapping
     public ResponseEntity<Object> saveAddress(@RequestBody @Valid AddressDTO addressDTO){
+
+        if(AddressService.existsByZipCode(addressDTO.getZipcode())){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Já existe este CEP");
+        }
         var addressEntity = new AddressEntity();
         BeanUtils.copyProperties(addressDTO, addressEntity);
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(addressEntity));
     }
 
     @GetMapping(value = {"/id"})
-    public AddressDTO findById(@PathVariable Long id) {
-        return service.findById(id);
+    public AddressDTO findById(@PathVariable UUID addressId) {
+        return service.findById(addressId);
     }
 }

@@ -21,13 +21,16 @@ public class WebSecurityConfigV2 {
                 .httpBasic()
                 .and()
                 .authorizeHttpRequests()
-                .antMatchers(HttpMethod.GET, "/clients/**").permitAll()
+
 
                 //.antMatchers(HttpMethod.POST, "/clients").hasRole("USER")
                 //.antMatchers(HttpMethod.DELETE, "/clients/**").hasRole("ADMIN")
                 //.antMatchers(HttpMethod.DELETE, "/clients/**").hasAnyRole("USER", "ADMIN")
                 //.antMatchers("/swagger-ui/*", "*.html").hasRole("ADMIN")
 
+/*
+
+                .antMatchers(HttpMethod.GET, "/clients/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/clients/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST, "/clients").hasRole("USER")
                 .antMatchers(HttpMethod.PUT, "/clients/**").hasRole("ADMIN")
@@ -82,6 +85,7 @@ public class WebSecurityConfigV2 {
                 .antMatchers(HttpMethod.PUT, "/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/users/**").hasAnyRole("USER", "ADMIN")
+*/
 
                 .anyRequest().authenticated()
                 .and()
@@ -97,9 +101,9 @@ public class WebSecurityConfigV2 {
 
 /*  HABILITAR SWAGGER
     @Override
-    public void configure(WebSecurity web) throws Exception {
+    public void configure(WebSecurityConfigV2 web) throws Exception {
         web.ignoring().antMatchers("/**");
     }
-*/
 
+*/
 }

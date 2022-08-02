@@ -6,11 +6,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import java.util.UUID;
 
 @Getter @Setter
 @Data
 public class AddressDTO {
-
+    private UUID addressId;
     @NotBlank
     private String residence;
     @NotBlank

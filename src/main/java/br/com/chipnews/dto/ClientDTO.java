@@ -3,6 +3,8 @@ package br.com.chipnews.dto;
 import br.com.chipnews.entity.ClientEntity;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.UUID;
 
@@ -11,13 +13,21 @@ import java.util.UUID;
 public class ClientDTO {
 
     private UUID clientId;
+    @NotBlank
     private String name;
+    @NotBlank
     private String email;
+    @NotBlank
     private String cpfCnpj;
+    @NotBlank
     private String rg;
+    @NotBlank
     private Date dateBirth;
+    @NotBlank
     private String nationality;
+    @NotBlank
     private String phone;
+    @NotBlank
     private String cellphone;
 
     public ClientDTO() {

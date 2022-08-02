@@ -6,6 +6,7 @@ import br.com.chipnews.repository.AddressRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.UUID;
 
 @Service
 public class AddressService {
@@ -25,8 +26,8 @@ public class AddressService {
             return repository.save(address);
     }
 
-    public AddressDTO findById(Long id) {
-        AddressEntity entity = repository.findById(id).get();
+    public AddressDTO findById(UUID addressId) {
+        AddressEntity entity = repository.findById(addressId).get();
         AddressDTO dto = new AddressDTO(entity);
         return dto;
     }
